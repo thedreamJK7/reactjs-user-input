@@ -3,19 +3,20 @@ import UserList from './components/User/UserList/UserList';
 import './App.css';
 import InputUser from './components/User/InputUserItem/InputUser' 
 function App() {
-  const [userList, setUserList] = useState([
-    {name: "Cristiano Ronaldo", age: 37},
-    {name: "Lionel Messi", age: 35}
-  ]);
+  const [userList, setUserList] = useState([]);
   
   const AddInputChangedHandler = (EnteredName, EnteredAge) => {
     setUserList(prevInput => {
       const updateInput = [...prevInput];
-      updateInput.unshift({name: EnteredName, age: EnteredAge});
+      updateInput.unshift({
+        name: EnteredName,
+        age: EnteredAge,
+        id: Math.round(Math.random() * 100)
+      });
       return updateInput;
     });
   }
-
+  console.log(userList);
   return (
     <div>
       <section id="userInput">

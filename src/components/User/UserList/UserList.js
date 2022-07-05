@@ -6,7 +6,7 @@ const UserList = (props) => {
     return (
       <div className={styled.users}>
         <ul>{props.inform.map((information)=>(
-            <UserItem>
+            <UserItem key={information.id} id={information.id}>
                 {information.name + ` (${information.age} years old)`}
             </UserItem>
         ))}</ul>
