@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import UserList from './components/User/UserList/UserList';
 import './App.css';
-
+import InputUser from './components/User/InputUserItem/InputUser' 
 function App() {
+  const [userList, setUserList] = useState([
+    {name: "Cristiano Ronaldo", age: 37},
+    {name: "Lionel Messi", age: 35}
+  ]);
+  
+  const AddInputChangedHandler = (EnteredName, EnteredAge) => {
+    setUserList(prevInput => {
+      const updateInput = [...prevInput];
+      updateInput.unshift({name: EnteredName, age: EnteredAge});
+      return updateInput;
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <section id="userInput">
+        <InputUser getInputInform={AddInputChangedHandler} />
+      </section>
+      <section id="userList">
+        <UserList inform={userList}/>
+      </section>
     </div>
   );
 }
