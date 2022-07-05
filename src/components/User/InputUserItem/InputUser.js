@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "./InputUser.module.css";
 import Button from "../../UI/Button/Button";
-import Error from "../../Error/Error";
+import Error from "../../ErrorHand/Error";
 
 const InputUserItem = (props) => {
   const [userName, setUserName] = useState('');
