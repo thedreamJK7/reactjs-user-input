@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import UserList from './components/User/UserList/UserList';
 import './App.css';
-import InputUser from './components/User/InputUserItem/InputUser' 
+import InputUser from './components/User/InputUserItem/InputUser';
+import Wrapper from './components/Helper/Wrapper';
 function App() {
   const [userList, setUserList] = useState([]);
   
@@ -18,14 +19,14 @@ function App() {
   }
   console.log(userList);
   return (
-    <div>
+    <Wrapper>
       <section id="userInput">
         <InputUser getInputInform={AddInputChangedHandler} />
       </section>
       <section id="userList">
         <UserList inform={userList}/>
       </section>
-    </div>
+    </Wrapper>
   );
 }
 

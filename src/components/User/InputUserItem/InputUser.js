@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "./InputUser.module.css";
 import Button from "../../UI/Button/Button";
 import Error from "../../ErrorHand/Error";
+import Wrapper from "../../Helper/Wrapper";
 
 const InputUserItem = (props) => {
   const [userName, setUserName] = useState('');
@@ -40,7 +41,7 @@ const InputUserItem = (props) => {
     setError(null);
   }
   return (
-    <div>
+    <Wrapper>
       {error && <Error title={error.title} content={error.content} errorHands={ErrorHandler}/>}
       <form onSubmit={submitChangedHandler} className={styled.input}>
         <label>Username</label>
@@ -49,7 +50,7 @@ const InputUserItem = (props) => {
         <input type="number" onChange={userAgeChangedHandler} value={userAge} />
         <Button type="submit">Add User</Button>
       </form>
-    </div>
+    </Wrapper>
   );
 };
 
