@@ -17,7 +17,6 @@ function App() {
       return updateInput;
     });
   }
-  console.log(userList);
   return (
     <Wrapper>
       <section id="userInput">
